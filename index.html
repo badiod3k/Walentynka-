@@ -15,6 +15,7 @@
       align-items: center;
       text-align: center;
       color: white;
+      overflow: hidden;
     }
 
     .card {
@@ -22,6 +23,7 @@
       padding: 30px;
       border-radius: 20px;
       max-width: 90%;
+      position: relative;
     }
 
     h1 {
@@ -46,34 +48,40 @@
     #noBtn {
       background-color: #f44336;
       color: white;
+      position: absolute;
     }
   </style>
 </head>
 <body>
 
   <div class="card" id="card">
-    <h1>Czy będziesz moją walentynką? 💖</h1>
+    <h1>Czy zostaniesz moją walentynką, misia? 💖</h1>
     <button id="yesBtn" onclick="yesClicked()">TAK 😊</button>
-    <button id="noBtn" onclick="noClicked()">NIE 😅</button>
+    <button id="noBtn" onmouseover="moveNo()">NIE 😅</button>
   </div>
 
   <script>
     function yesClicked() {
       document.body.innerHTML = `
         <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;font-family:Arial;text-align:center;padding:20px;">
-          <h1>Dziękuję! ❤️</h1>
-          <p style="font-size:1.3em;">Bardzo się cieszę, że się zgodziłaś. To dla mnie naprawdę dużo znaczy 😊</p>
+          <h1>❤️</h1>
+          <p style="font-size:1.4em;">Tak właśnie myślałem, skrzacie 😘💖</p>
         </div>
       `;
     }
 
-    function noClicked() {
-      document.body.innerHTML = `
-        <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;font-family:Arial;text-align:center;padding:20px;">
-          <h1>😢</h1>
-          <p style="font-size:1.3em;">Szkoda, ale dziękuję za szczerość ❤️</p>
-        </div>
-      `;
+    function moveNo() {
+      const noBtn = document.getElementById("noBtn");
+      const card = document.getElementById("card");
+
+      const maxX = card.clientWidth - noBtn.offsetWidth;
+      const maxY = card.clientHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     }
   </script>
 
