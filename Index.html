@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Walentynka ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.2);
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 90%;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 25px;
+    }
+
+    button {
+      font-size: 1.2em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <h1>Czy będziesz moją walentynką? 💖</h1>
+    <button id="yesBtn" onclick="yesClicked()">TAK 😊</button>
+    <button id="noBtn" onclick="noClicked()">NIE 😅</button>
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;font-family:Arial;text-align:center;padding:20px;">
+          <h1>Dziękuję! ❤️</h1>
+          <p style="font-size:1.3em;">Bardzo się cieszę, że się zgodziłaś. To dla mnie naprawdę dużo znaczy 😊</p>
+        </div>
+      `;
+    }
+
+    function noClicked() {
+      document.body.innerHTML = `
+        <div style="height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#ff758c,#ff7eb3);color:white;font-family:Arial;text-align:center;padding:20px;">
+          <h1>😢</h1>
+          <p style="font-size:1.3em;">Szkoda, ale dziękuję za szczerość ❤️</p>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
